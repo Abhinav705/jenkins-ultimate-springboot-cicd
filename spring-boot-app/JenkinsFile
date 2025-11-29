@@ -6,6 +6,19 @@ pipeline{
     }
   }
   stages{
-    stage('Checkout'){}
+    stage('Checkout'){
+      steps{
+        sh 'echo passed checkout stage'
+        //git branch: 'main', url: 'https://github.com/Abhinav705/jenkins-ultimate-springboot-cicd.git'
+      }
+    }
+    stage('Build and Test'){
+      steps{
+        sh 'ls -ltr'
+        // build the project and create a JAR file
+        sh 'cd spring-boot-app && mvn clean package'
+        sh 'ls -ltr spring-boot-app/target/'
+      }
+    }
   }
 }
