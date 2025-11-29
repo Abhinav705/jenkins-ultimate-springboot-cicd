@@ -14,6 +14,9 @@ pipeline{
     }
     stage('Build and Test'){
       steps{
+        sh 'groups'
+        sh 'whoami'
+        sh 'ls -l /var/run/docker.sock'
         sh 'ls -ltr'
         // build the project and create a JAR file
         sh 'cd spring-boot-app && mvn clean package'
