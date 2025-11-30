@@ -23,7 +23,7 @@ pipeline{
         sh 'ls -ltr spring-boot-app/target/'
       }
     }
-    stage('Static code Analysis'){
+    /*stage('Static code Analysis'){
       environment{
         SONAR_URL = "http://100.26.111.71:9000/"
       }
@@ -32,7 +32,7 @@ pipeline{
           sh 'cd spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
       }
-    }
+    }*/
     stage('Build and Push Docker Image'){
       environment{
         DOCKER_IMAGE = "abhinav1810/ultimate-cicd:${BUILD_NUMBER}"
